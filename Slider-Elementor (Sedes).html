@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Moderno - Elementor Pro</title>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .modern-slider {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .slide-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.1);
+            transition: transform 8s ease;
+            filter: brightness(0.7);
+        }
+
+        .swiper-slide-active .slide-bg {
+            transform: scale(1);
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 90%;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .swiper-slide-active .slide-content {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.5s;
+        }
+
+        .slide-subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .swiper-slide-active .slide-subtitle {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.7s;
+        }
+
+        .slide-title {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .swiper-slide-active .slide-title {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.9s;
+        }
+
+        .slide-description {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .swiper-slide-active .slide-description {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.1s;
+        }
+
+        .slide-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .swiper-slide-active .slide-button {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 1.3s;
+        }
+
+        .slide-button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .swiper-pagination {
+            bottom: 40px !important;
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            opacity: 1;
+            transition: all 0.3s ease;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: white;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 1.5rem;
+        }
+
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .slide-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slide-title {
+                font-size: 2.5rem;
+            }
+            
+            .slide-description {
+                font-size: 1rem;
+            }
+            
+            .swiper-button-next, .swiper-button-prev {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .slide-title {
+                font-size: 2rem;
+            }
+            
+            .slide-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="modern-slider">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="slide-bg" style="background-image: url('https://4stagioni.mx/wp-content/uploads/2025/07/ANTONIO-VIVALDI-BY-PILIPALA24baja-08-scaled.jpg')"></div>
+                    <div class="slide-content">
+                        <p class="slide-subtitle">Instituto Cultural Helénico</p>
+                        <h2 class="slide-title">Capilla Gótica</h2>
+                        <p class="slide-description">Le Quattro Stagioni es una experiencia inmersiva de la Camerata Opus 11 que acerca al público a la música barroca con una interpretación históricamente informada..</p>
+                        <a href="#" class="slide-button">Comprar ahora</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="slide-bg" style="background-image: url('https://4stagioni.mx/wp-content/uploads/2025/07/ANTONIO-VIVALDI-BY-PILIPALA24baja-05-scaled.jpg')"></div>
+                    <div class="slide-content">
+                        <p class="slide-subtitle">Arena CDMX</p>
+                        <h2 class="slide-title">Carmina Burana</h2>
+                        <p class="slide-description">La obra Carmina Burana está basada en poemas medievales descubiertos en el monasterio de Beuern. Estos textos, llenos de pasión y rebeldía, han inspirado a generaciones a lo largo de la historia, logrando así convertirse en un tesoro musical atemporal.</p>
+                        <a href="#" class="slide-button">Comprar ahora</a>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="slide-bg" style="background-image: url('https://4stagioni.mx/wp-content/uploads/2025/07/ANTONIO-VIVALDI-BY-PILIPALA24baja-03-scaled.jpg')"></div>
+                    <div class="slide-content">
+                        <p class="slide-subtitle">CDMX</p>
+                        <h2 class="slide-title">Carmina Burana <p></p> Coro Monumental y Orquesta</h2>
+                        <p class="slide-description">Esta versión monumental involucrará más de 16 coros y más 120 instrumentistas en escena, logrando por primera vez en México una agrupación sinfónica-coral de más 1,000 músicos en escena.</p>
+                        <a href="#" class="slide-button">Comprar ahora</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+            
+            <!-- Navigation buttons -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const swiper = new Swiper('.swiper', {
+                // Optional parameters
+                direction: 'horizontal',
+                loop: true,
+                speed: 1000,
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                
+                // Autoplay
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                
+                // Pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                
+                // Navigation
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        });
+    </script>
+</body>
+</html>
